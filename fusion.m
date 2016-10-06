@@ -1,0 +1,21 @@
+I1=imread('C:\Users\owner\Desktop\ime\pepsi1.gif');
+I2=imread('C:\Users\owner\Desktop\ime\pepsi2.gif');
+figure
+subplot(131);
+imshow(I1);
+title('image 1');
+subplot(132);
+imshow(I2);
+title('image 2');
+Ix=I1(:);Iy=I2(:);
+I=[Ix Iy];
+c=cov(im2double(I));
+b=eig(c);
+k=max(max(b));
+d=c-k*[1 0;0 1];
+e=null(d);
+e=e./(sum(e));
+In=I1*e(1,1)+I2*e(2,1);
+subplot(133);
+imshow((In));
+title('Fusion');
