@@ -2,8 +2,9 @@ I1=imread('cameraman.tif');
 I2=imread('rice.png');
 I1=double(I1);
 I2=double(I2);
+a=input('enter  key');
 [u s v]=svd(I1);
-s1=s+0.2*I2;
+s1=s+a*I2;
 I3=u*s1*v';
 figure
 subplot(121)
